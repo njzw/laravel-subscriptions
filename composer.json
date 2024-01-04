@@ -12,13 +12,7 @@
         "subscription"
     ],
     "license": "MIT",
-  
     "authors": [
-        {
-            "name": "Rinvex LLC",
-            "homepage": "https://rinvex.com",
-            "email": "help@rinvex.com"
-        },
         {
             "name": "Abdelrahman Omran",
             "homepage": "https://omranic.com",
@@ -47,12 +41,12 @@
     },
     "autoload": {
         "psr-4": {
-            "Rinvex\\Subscriptions\\": "src"
+            "Nigel\\Subscriptions\\": "src"
         }
     },
     "autoload-dev": {
         "psr-4": {
-            "Rinvex\\Subscriptions\\Tests\\": "tests"
+            "Nigel\\Subscriptions\\Tests\\": "tests"
         }
     },
     "scripts": {
@@ -66,7 +60,7 @@
     "extra": {
         "laravel": {
             "providers": [
-                "Rinvex\\Subscriptions\\Providers\\SubscriptionsServiceProvider"
+                "Nigel\\Subscriptions\\Providers\\SubscriptionsServiceProvider"
             ]
         }
     },

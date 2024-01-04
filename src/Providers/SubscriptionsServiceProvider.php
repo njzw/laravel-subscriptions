@@ -2,17 +2,17 @@
 
 declare(strict_types=1);
 
-namespace Rinvex\Subscriptions\Providers;
+namespace Nigel\Subscriptions\Providers;
 
-use Rinvex\Subscriptions\Models\Plan;
+use Nigel\Subscriptions\Models\Plan;
 use Illuminate\Support\ServiceProvider;
 use Rinvex\Support\Traits\ConsoleTools;
-use Rinvex\Subscriptions\Models\PlanFeature;
-use Rinvex\Subscriptions\Models\PlanSubscription;
-use Rinvex\Subscriptions\Models\PlanSubscriptionUsage;
-use Rinvex\Subscriptions\Console\Commands\MigrateCommand;
-use Rinvex\Subscriptions\Console\Commands\PublishCommand;
-use Rinvex\Subscriptions\Console\Commands\RollbackCommand;
+use Nigel\Subscriptions\Models\PlanFeature;
+use Nigel\Subscriptions\Models\PlanSubscription;
+use Nigel\Subscriptions\Models\PlanSubscriptionUsage;
+use Nigel\Subscriptions\Console\Commands\MigrateCommand;
+use Nigel\Subscriptions\Console\Commands\PublishCommand;
+use Nigel\Subscriptions\Console\Commands\RollbackCommand;
 
 class SubscriptionsServiceProvider extends ServiceProvider
 {
@@ -36,14 +36,14 @@ class SubscriptionsServiceProvider extends ServiceProvider
      */
     public function register(): void
     {
-        $this->mergeConfigFrom(realpath(__DIR__ . '/../../config/config.php'), 'rinvex.subscriptions');
+        $this->mergeConfigFrom(realpath(__DIR__ . '/../../config/config.php'), 'nigel.subscriptions');
 
         // Bind eloquent models to IoC container
         $this->registerModels([
-            'rinvex.subscriptions.plan' => Plan::class,
-            'rinvex.subscriptions.plan_feature' => PlanFeature::class,
-            'rinvex.subscriptions.plan_subscription' => PlanSubscription::class,
-            'rinvex.subscriptions.plan_subscription_usage' => PlanSubscriptionUsage::class,
+            'nigel.subscriptions.plan' => Plan::class,
+            'nigel.subscriptions.plan_feature' => PlanFeature::class,
+            'nigel.subscriptions.plan_subscription' => PlanSubscription::class,
+            'nigel.subscriptions.plan_subscription_usage' => PlanSubscriptionUsage::class,
         ]);
 
 

@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Rinvex\Subscriptions\Services;
+namespace Nigel\Subscriptions\Services;
 
 use Carbon\Carbon;
 
@@ -51,7 +51,7 @@ class Period
 
         if (empty($start)) {
             $this->start = Carbon::now();
-        } elseif (! $start instanceof Carbon) {
+        } elseif (!$start instanceof Carbon) {
             $this->start = new Carbon($start);
         } else {
             $this->start = $start;
@@ -59,7 +59,7 @@ class Period
 
         $this->period = $count;
         $start = clone $this->start;
-        $method = 'add'.ucfirst($this->interval).'s';
+        $method = 'add' . ucfirst($this->interval) . 's';
         $this->end = $start->{$method}($this->period);
     }
 
