@@ -18,7 +18,7 @@ class CreatePlanSubscriptionsTable extends Migration
             $table->increments('id');
             $table->morphs('subscriber');
             $table->integer('plan_id')->unsigned();
-            $table->string('slug');
+            $table->string('slug')->nullable();
             $table->json('name');
             $table->json('description')->nullable();
             $table->dateTime('trial_ends_at')->nullable();

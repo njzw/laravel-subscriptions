@@ -32,8 +32,8 @@ class MigrateCommand extends Command
         $this->alert($this->description);
 
         $path = config('theartizan.subscriptions.autoload_migrations') ?
-            'vendor/theartizan/laravel-subscriptions/database/migrations' :
-            'database/migrations/theartizan/laravel-subscriptions';
+            'vendor/theartizan/subscriptions/database/migrations' :
+            'database/migrations/theartizan/subscriptions';
 
         if (file_exists($path)) {
             $this->call('migrate', [

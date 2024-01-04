@@ -17,7 +17,7 @@ class CreatePlansTable extends Migration
         Schema::create(config('theartizan.subscriptions.tables.plans'), function (Blueprint $table) {
             // Columns
             $table->increments('id');
-            $table->string('slug');
+            $table->string('slug')->nullable();
             $table->json('name');
             $table->json('description')->nullable();
             $table->boolean('is_active')->default(true);
@@ -35,6 +35,7 @@ class CreatePlansTable extends Migration
             $table->tinyInteger('prorate_extend_due')->unsigned()->nullable();
             $table->smallInteger('active_subscribers_limit')->unsigned()->nullable();
             $table->mediumInteger('sort_order')->unsigned()->default(0);
+            $table->bigInteger('created_by')->nullable();
             $table->timestamps();
             $table->softDeletes();
 

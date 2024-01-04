@@ -18,7 +18,7 @@ class CreatePlanFeaturesTable extends Migration
             // Columns
             $table->increments('id');
             $table->integer('plan_id')->unsigned();
-            $table->string('slug');
+            $table->string('slug')->nullable();
             $table->json('name');
             $table->json('description')->nullable();
             $table->string('value');
