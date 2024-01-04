@@ -1,8 +1,4 @@
-# Rinvex Subscriptions
-
-⚠️ This package is abandoned and no longer maintained. No replacement package was suggested. ⚠️
-
-👉 If you are interested to step on as the main maintainer of this package, please [reach out to me](https://twitter.com/omranic)!
+# Rinvex Subscriptions Copy
 
 ---
 
@@ -14,32 +10,32 @@
 [![StyleCI](https://styleci.io/repos/93313402/shield)](https://styleci.io/repos/93313402)
 [![License](https://img.shields.io/packagist/l/rinvex/laravel-subscriptions.svg?label=License&style=flat-square)](https://github.com/rinvex/laravel-subscriptions/blob/develop/LICENSE)
 
-
 ## Considerations
 
 - Payments are out of scope for this package.
 - You may want to extend some of the core models, in case you need to override the logic behind some helper methods like `renew()`, `cancel()` etc. E.g.: when cancelling a subscription you may want to also cancel the recurring payment attached.
 
-
 ## Installation
 
 1. Install the package via composer:
-    ```shell
-    composer require rinvex/laravel-subscriptions
-    ```
+
+   ```shell
+   composer require rinvex/laravel-subscriptions
+   ```
 
 2. Publish resources (migrations and config files):
-    ```shell
-    php artisan rinvex:publish:subscriptions
-    ```
+
+   ```shell
+   php artisan rinvex:publish:subscriptions
+   ```
 
 3. Execute migrations via the following command:
-    ```shell
-    php artisan rinvex:migrate:subscriptions
-    ```
+
+   ```shell
+   php artisan rinvex:migrate:subscriptions
+   ```
 
 4. Done!
-
 
 ## Usage
 
@@ -95,7 +91,7 @@ You can query the plan for further details, using the intuitive API as follows:
 ```php
 $plan = app('rinvex.subscriptions.plan')->find(1);
 
-// Get all plan features                
+// Get all plan features
 $plan->features;
 
 // Get all plan subscriptions
@@ -277,7 +273,7 @@ $subscriptions = app('rinvex.subscriptions.plan_subscription')->byPlanId($plan_i
 
 // Get bookings of the given user
 $user = \App\Models\User::find(1);
-$bookingsOfSubscriber = app('rinvex.subscriptions.plan_subscription')->ofSubscriber($user)->get(); 
+$bookingsOfSubscriber = app('rinvex.subscriptions.plan_subscription')->ofSubscriber($user)->get();
 
 // Get subscriptions with trial ending in 3 days
 $subscriptions = app('rinvex.subscriptions.plan_subscription')->findEndingTrial(3)->get();
@@ -303,7 +299,6 @@ Rinvex\Subscriptions\Models\PlanSubscription;
 Rinvex\Subscriptions\Models\PlanSubscriptionUsage;
 ```
 
-
 ## Roadmap
 
 **Looking for contributors!**
@@ -312,14 +307,13 @@ The following are a set of limitations to be improved, or feature requests that'
 
 - [ ] Allow paying for multiple occurrences of the same plan (i.e. monthly plan, user can pay for 6 months of that plan) (#64)
 - [ ] Plan prorate fields in database isn't utilized, this should be implemented to consolidate extension dates, and prices (#68)
-- [ ] Change *features* to be in a many-to-many relationship with plans. Multiple plans can have the same feature, and many plans can have many features as well (#101)
+- [ ] Change _features_ to be in a many-to-many relationship with plans. Multiple plans can have the same feature, and many plans can have many features as well (#101)
 - [ ] Plan subscription timezone field in database isn't utilized, this should be implemented to respect timezone on date calculations (i.e. starts_at, ends_at, trial_ends_at) (#78)
 - [ ] Separate trial feature from the subscription periods and adjust subscriptions accordingly. Users should be able to have a trial period without having a subscription at all (#67)
 
 ## Changelog
 
 Refer to the [Changelog](CHANGELOG.md) for a full history of the project.
-
 
 ## Support
 
@@ -328,7 +322,6 @@ The following support channels are available at your fingertips:
 - [Chat on Slack](https://bit.ly/rinvex-slack)
 - [Help on Email](mailto:help@rinvex.com)
 - [Follow on Twitter](https://twitter.com/rinvex)
-
 
 ## Contributing & Protocols
 
@@ -342,16 +335,13 @@ Bug reports, feature requests, and pull requests are very welcome.
 - [Feature Requests](CONTRIBUTING.md#feature-requests)
 - [Git Flow](CONTRIBUTING.md#git-flow)
 
-
 ## Security Vulnerabilities
 
 If you discover a security vulnerability within this project, please send an e-mail to [help@rinvex.com](help@rinvex.com). All security vulnerabilities will be promptly addressed.
 
-
 ## About Rinvex
 
 Rinvex is a software solutions startup, specialized in integrated enterprise solutions for SMEs established in Alexandria, Egypt since June 2016. We believe that our drive The Value, The Reach, and The Impact is what differentiates us and unleash the endless possibilities of our philosophy through the power of software. We like to call it Innovation At The Speed Of Life. That’s how we do our share of advancing humanity.
-
 
 ## License
 
