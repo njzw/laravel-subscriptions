@@ -293,44 +293,6 @@ Nigel\Subscriptions\Models\PlanSubscription;
 Nigel\Subscriptions\Models\PlanSubscriptionUsage;
 ```
 
-## Roadmap
-
-**Looking for contributors!**
-
-The following are a set of limitations to be improved, or feature requests that's looking for contributors to implement, all PRs are welcome 🙂
-
-- [ ] Allow paying for multiple occurrences of the same plan (i.e. monthly plan, user can pay for 6 months of that plan) (#64)
-- [ ] Plan prorate fields in database isn't utilized, this should be implemented to consolidate extension dates, and prices (#68)
-- [ ] Change _features_ to be in a many-to-many relationship with plans. Multiple plans can have the same feature, and many plans can have many features as well (#101)
-- [ ] Plan subscription timezone field in database isn't utilized, this should be implemented to respect timezone on date calculations (i.e. starts_at, ends_at, trial_ends_at) (#78)
-- [ ] Separate trial feature from the subscription periods and adjust subscriptions accordingly. Users should be able to have a trial period without having a subscription at all (#67)
-
-## Changelog
-
-Refer to the [Changelog](CHANGELOG.md) for a full history of the project.
-
-## Support
-
-The following support channels are available at your fingertips:
-
-- [Follow on Twitter](https://twitter.com/iamtanyazw)
-
-## Contributing & Protocols
-
-Thank you for considering contributing to this project! The contribution guide can be found in [CONTRIBUTING.md](CONTRIBUTING.md).
-
-Bug reports, feature requests, and pull requests are very welcome.
-
-- [Versioning](CONTRIBUTING.md#versioning)
-- [Pull Requests](CONTRIBUTING.md#pull-requests)
-- [Coding Standards](CONTRIBUTING.md#coding-standards)
-- [Feature Requests](CONTRIBUTING.md#feature-requests)
-- [Git Flow](CONTRIBUTING.md#git-flow)
-
-## Security Vulnerabilities
-
-If you discover a security vulnerability within this project, please send an e-mail to [help@nigel.com](iamtanyazw@gmail.com). All security vulnerabilities will be promptly addressed.
-
 
 ## License
 
