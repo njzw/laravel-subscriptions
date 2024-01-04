@@ -1,8 +1,8 @@
-# Nigel Laravel Subscriptions
+# TheArtizan Laravel Subscriptions
 
 ---
 
-**Nigel Laravel Subscriptions (Based on Rinvex)** is a flexible plans and subscription management system for Laravel, with the required tools to run your SAAS like services efficiently. It's simple architecture, accompanied by powerful underlying to afford solid platform for your business.
+**TheArtizan Laravel Subscriptions (Forked Rinvex Laravel Subscriptions)** is a flexible plans and subscription management system for Laravel, with the required tools to run your SAAS like services efficiently. It's simple architecture, accompanied by powerful underlying to afford solid platform for your business.
 
 ## Considerations
 
@@ -14,19 +14,19 @@
 1. Install the package via composer:
 
    ```shell
-   composer require nigel/laravel-subscriptionsdev-master
+   composer require theartizan/laravel-subscriptionsdev-master
    ```
 
 2. Publish resources (migrations and config files):
 
    ```shell
-   php artisan nigel:publish:subscriptions
+   php artisan theartizan:publish:subscriptions
    ```
 
 3. Execute migrations via the following command:
 
    ```shell
-   php artisan nigel:migrate:subscriptions
+   php artisan theartizan:migrate:subscriptions
    ```
 
 4. Done!
@@ -35,12 +35,12 @@
 
 ### Add Subscriptions to User model
 
-**Nigel Subscriptions** has been specially made for Eloquent and simplicity has been taken very serious as in any other Laravel related aspect. To add Subscription functionality to your User model just use the `\Nigel\Subscriptions\Traits\HasPlanSubscriptions` trait like this:
+**TheArtizan Subscriptions** has been specially made for Eloquent and simplicity has been taken very serious as in any other Laravel related aspect. To add Subscription functionality to your User model just use the `\TheArtizan\Subscriptions\Traits\HasPlanSubscriptions` trait like this:
 
 ```php
 namespace App\Models;
 
-use Nigel\Subscriptions\Traits\HasPlanSubscriptions;
+use TheArtizan\Subscriptions\Traits\HasPlanSubscriptions;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 
 class User extends Authenticatable
@@ -56,7 +56,7 @@ That's it, we only have to use that trait in our User model! Now your users may 
 ### Create a Plan
 
 ```php
-$plan = app('nigel.subscriptions.plan')->create([
+$plan = app('theartizan.subscriptions.plan')->create([
     'name' => 'Pro',
     'description' => 'Pro plan',
     'price' => 9.99,
@@ -83,7 +83,7 @@ $plan->features()->saveMany([
 You can query the plan for further details, using the intuitive API as follows:
 
 ```php
-$plan = app('nigel.subscriptions.plan')->find(1);
+$plan = app('theartizan.subscriptions.plan')->find(1);
 
 // Get all plan features
 $plan->features;
@@ -112,10 +112,10 @@ Say you want to show the value of the feature _pictures_per_listing_ from above.
 $amountOfPictures = $plan->getFeatureBySlug('pictures_per_listing')->value;
 
 // Query the feature itself directly
-$amountOfPictures = app('nigel.subscriptions.plan_feature')->where('slug', 'pictures_per_listing')->first()->value;
+$amountOfPictures = app('theartizan.subscriptions.plan_feature')->where('slug', 'pictures_per_listing')->first()->value;
 
 // Get feature value through the subscription instance
-$amountOfPictures = app('nigel.subscriptions.plan_subscription')->find(1)->getFeatureValue('pictures_per_listing');
+$amountOfPictures = app('theartizan.subscriptions.plan_subscription')->find(1)->getFeatureValue('pictures_per_listing');
 ```
 
 ### Create a Subscription
@@ -124,7 +124,7 @@ You can subscribe a user to a plan by using the `newSubscription()` function ava
 
 ```php
 $user = User::find(1);
-$plan = app('nigel.subscriptions.plan')->find(1);
+$plan = app('theartizan.subscriptions.plan')->find(1);
 
 $user->newPlanSubscription('main', $plan);
 ```
@@ -136,8 +136,8 @@ The first argument passed to `newSubscription` method should be the title of the
 You can change subscription plan easily as follows:
 
 ```php
-$plan = app('nigel.subscriptions.plan')->find(2);
-$subscription = app('nigel.subscriptions.plan_subscription')->find(1);
+$plan = app('theartizan.subscriptions.plan')->find(2);
+$subscription = app('theartizan.subscriptions.plan_subscription')->find(1);
 
 // Change subscription plan
 $subscription->changePlan($plan);
@@ -151,7 +151,7 @@ Plan features are great for fine-tuning subscriptions, you can top-up certain fe
 
 ```php
 // Find plan feature
-$feature = app('nigel.subscriptions.plan_feature')->where('name', 'listing_duration_days')->first();
+$feature = app('theartizan.subscriptions.plan_feature')->where('name', 'listing_duration_days')->first();
 
 // Get feature reset date
 $feature->getResetDate(new \Carbon\Carbon());
@@ -263,39 +263,38 @@ $user->planSubscription('main')->cancel(true);
 
 ```php
 // Get subscriptions by plan
-$subscriptions = app('nigel.subscriptions.plan_subscription')->byPlanId($plan_id)->get();
+$subscriptions = app('theartizan.subscriptions.plan_subscription')->byPlanId($plan_id)->get();
 
 // Get bookings of the given user
 $user = \App\Models\User::find(1);
-$bookingsOfSubscriber = app('nigel.subscriptions.plan_subscription')->ofSubscriber($user)->get();
+$bookingsOfSubscriber = app('theartizan.subscriptions.plan_subscription')->ofSubscriber($user)->get();
 
 // Get subscriptions with trial ending in 3 days
-$subscriptions = app('nigel.subscriptions.plan_subscription')->findEndingTrial(3)->get();
+$subscriptions = app('theartizan.subscriptions.plan_subscription')->findEndingTrial(3)->get();
 
 // Get subscriptions with ended trial
-$subscriptions = app('nigel.subscriptions.plan_subscription')->findEndedTrial()->get();
+$subscriptions = app('theartizan.subscriptions.plan_subscription')->findEndedTrial()->get();
 
 // Get subscriptions with period ending in 3 days
-$subscriptions = app('nigel.subscriptions.plan_subscription')->findEndingPeriod(3)->get();
+$subscriptions = app('theartizan.subscriptions.plan_subscription')->findEndingPeriod(3)->get();
 
 // Get subscriptions with ended period
-$subscriptions = app('nigel.subscriptions.plan_subscription')->findEndedPeriod()->get();
+$subscriptions = app('theartizan.subscriptions.plan_subscription')->findEndedPeriod()->get();
 ```
 
 ### Models
 
-**Nigel Subscriptions** uses 4 models:
+**TheArtizan Subscriptions** uses 4 models:
 
 ```php
-Nigel\Subscriptions\Models\Plan;
-Nigel\Subscriptions\Models\PlanFeature;
-Nigel\Subscriptions\Models\PlanSubscription;
-Nigel\Subscriptions\Models\PlanSubscriptionUsage;
+TheArtizan\Subscriptions\Models\Plan;
+TheArtizan\Subscriptions\Models\PlanFeature;
+TheArtizan\Subscriptions\Models\PlanSubscription;
+TheArtizan\Subscriptions\Models\PlanSubscriptionUsage;
 ```
-
 
 ## License
 
 This software is released under [The MIT License (MIT)](LICENSE).
 
-(c) 2024 Nigel Jaure, Some rights reserved.
+(c) 2024 <a href="https://theartisan.co.zw">TheArtizan Studio </a>, Some rights reserved.

@@ -20,10 +20,10 @@ return [
     // Subscriptions Models
     'models' => [
 
-        'plan' => \Nigel\Subscriptions\Models\Plan::class,
-        'plan_feature' => \Nigel\Subscriptions\Models\PlanFeature::class,
-        'plan_subscription' => \Nigel\Subscriptions\Models\PlanSubscription::class,
-        'plan_subscription_usage' => \Nigel\Subscriptions\Models\PlanSubscriptionUsage::class,
+        'plan' => \TheArtizan\Subscriptions\Models\Plan::class,
+        'plan_feature' => \TheArtizan\Subscriptions\Models\PlanFeature::class,
+        'plan_subscription' => \TheArtizan\Subscriptions\Models\PlanSubscription::class,
+        'plan_subscription_usage' => \TheArtizan\Subscriptions\Models\PlanSubscriptionUsage::class,
 
     ],
 

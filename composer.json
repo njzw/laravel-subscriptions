@@ -1,5 +1,5 @@
 {
-    "name": "nigel/laravel-subscriptions",
+    "name": "theartizan/subscriptions",
     "description": "Subscriptions is a flexible plans and subscription management system for Laravel, with the required tools to run your SAAS like services efficiently. It's simple architecture, accompanied by powerful underlying to afford solid platform for your business.",
     "type": "library",
     "keywords": [
@@ -41,12 +41,12 @@
     },
     "autoload": {
         "psr-4": {
-            "Nigel\\Subscriptions\\": "src"
+            "TheArtizan\\Subscriptions\\": "src"
         }
     },
     "autoload-dev": {
         "psr-4": {
-            "Nigel\\Subscriptions\\Tests\\": "tests"
+            "TheArtizan\\Subscriptions\\Tests\\": "tests"
         }
     },
     "scripts": {
@@ -60,7 +60,7 @@
     "extra": {
         "laravel": {
             "providers": [
-                "Nigel\\Subscriptions\\Providers\\SubscriptionsServiceProvider"
+                "TheArtizan\\Subscriptions\\Providers\\SubscriptionsServiceProvider"
             ]
         }
     },

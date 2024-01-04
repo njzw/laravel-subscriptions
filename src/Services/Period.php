@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Nigel\Subscriptions\Services;
+namespace TheArtizan\Subscriptions\Services;
 
 use Carbon\Carbon;
 

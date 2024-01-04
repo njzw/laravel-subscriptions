@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Nigel\Subscriptions\Console\Commands;
+namespace TheArtizan\Subscriptions\Console\Commands;
 
 use Illuminate\Console\Command;
 
@@ -13,14 +13,14 @@ class PublishCommand extends Command
      *
      * @var string
      */
-    protected $signature = 'nigel:publish:subscriptions {--f|force : Overwrite any existing files.} {--r|resource=* : Specify which resources to publish.}';
+    protected $signature = 'theartizan:publish:subscriptions {--f|force : Overwrite any existing files.} {--r|resource=* : Specify which resources to publish.}';
 
     /**
      * The console command description.
      *
      * @var string
      */
-    protected $description = 'Publish Nigel Subscriptions Resources.';
+    protected $description = 'Publish TheArtizan Subscriptions Resources.';
 
     /**
      * Execute the console command.
@@ -32,7 +32,7 @@ class PublishCommand extends Command
         $this->alert($this->description);
 
         collect($this->option('resource') ?: ['config', 'migrations'])->each(function ($resource) {
-            $this->call('vendor:publish', ['--tag' => "nigel/subscriptions::{$resource}", '--force' => $this->option('force')]);
+            $this->call('vendor:publish', ['--tag' => "theartizan/subscriptions::{$resource}", '--force' => $this->option('force')]);
         });
 
         $this->line('');

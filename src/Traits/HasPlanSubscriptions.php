@@ -2,13 +2,13 @@
 
 declare(strict_types=1);
 
-namespace Nigel\Subscriptions\Traits;
+namespace TheArtizan\Subscriptions\Traits;
 
 use Carbon\Carbon;
-use Nigel\Subscriptions\Models\Plan;
-use Nigel\Subscriptions\Services\Period;
+use TheArtizan\Subscriptions\Models\Plan;
+use TheArtizan\Subscriptions\Services\Period;
 use Illuminate\Database\Eloquent\Collection;
-use Nigel\Subscriptions\Models\PlanSubscription;
+use TheArtizan\Subscriptions\Models\PlanSubscription;
 use Illuminate\Database\Eloquent\Relations\MorphMany;
 
 trait HasPlanSubscriptions
@@ -45,7 +45,7 @@ trait HasPlanSubscriptions
      */
     public function planSubscriptions(): MorphMany
     {
-        return $this->morphMany(config('nigel.subscriptions.models.plan_subscription'), 'subscriber', 'subscriber_type', 'subscriber_id');
+        return $this->morphMany(config('theartizan.subscriptions.models.plan_subscription'), 'subscriber', 'subscriber_type', 'subscriber_id');
     }
 
     /**
@@ -63,7 +63,7 @@ trait HasPlanSubscriptions
      *
      * @param string $subscriptionSlug
      *
-     * @return \Nigel\Subscriptions\Models\PlanSubscription|null
+     * @return \TheArtizan\Subscriptions\Models\PlanSubscription|null
      */
     public function planSubscription(string $subscriptionSlug): ?PlanSubscription
     {
@@ -79,7 +79,7 @@ trait HasPlanSubscriptions
     {
         $planIds = $this->planSubscriptions->reject->inactive()->pluck('plan_id')->unique();
 
-        return app('nigel.subscriptions.plan')->whereIn('id', $planIds)->get();
+        return app('theartizan.subscriptions.plan')->whereIn('id', $planIds)->get();
     }
 
     /**
@@ -100,10 +100,10 @@ trait HasPlanSubscriptions
      * Subscribe subscriber to a new plan.
      *
      * @param string                            $subscription
-     * @param \Nigel\Subscriptions\Models\Plan $plan
+     * @param \TheArtizan\Subscriptions\Models\Plan $plan
      * @param \Carbon\Carbon|null               $startDate
      *
-     * @return \Nigel\Subscriptions\Models\PlanSubscription
+     * @return \TheArtizan\Subscriptions\Models\PlanSubscription
      */
     public function newPlanSubscription($subscription, Plan $plan, Carbon $startDate = null): PlanSubscription
     {

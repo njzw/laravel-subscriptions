@@ -14,7 +14,7 @@ class CreatePlansTable extends Migration
      */
     public function up(): void
     {
-        Schema::create(config('nigel.subscriptions.tables.plans'), function (Blueprint $table) {
+        Schema::create(config('theartizan.subscriptions.tables.plans'), function (Blueprint $table) {
             // Columns
             $table->increments('id');
             $table->string('slug');
@@ -50,6 +50,6 @@ class CreatePlansTable extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists(config('nigel.subscriptions.tables.plans'));
+        Schema::dropIfExists(config('theartizan.subscriptions.tables.plans'));
     }
 }

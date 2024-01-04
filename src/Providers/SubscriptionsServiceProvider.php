@@ -2,17 +2,17 @@
 
 declare(strict_types=1);
 
-namespace Nigel\Subscriptions\Providers;
+namespace TheArtizan\Subscriptions\Providers;
 
-use Nigel\Subscriptions\Models\Plan;
+use TheArtizan\Subscriptions\Models\Plan;
 use Illuminate\Support\ServiceProvider;
 use Rinvex\Support\Traits\ConsoleTools;
-use Nigel\Subscriptions\Models\PlanFeature;
-use Nigel\Subscriptions\Models\PlanSubscription;
-use Nigel\Subscriptions\Models\PlanSubscriptionUsage;
-use Nigel\Subscriptions\Console\Commands\MigrateCommand;
-use Nigel\Subscriptions\Console\Commands\PublishCommand;
-use Nigel\Subscriptions\Console\Commands\RollbackCommand;
+use TheArtizan\Subscriptions\Models\PlanFeature;
+use TheArtizan\Subscriptions\Models\PlanSubscription;
+use TheArtizan\Subscriptions\Models\PlanSubscriptionUsage;
+use TheArtizan\Subscriptions\Console\Commands\MigrateCommand;
+use TheArtizan\Subscriptions\Console\Commands\PublishCommand;
+use TheArtizan\Subscriptions\Console\Commands\RollbackCommand;
 
 class SubscriptionsServiceProvider extends ServiceProvider
 {
@@ -36,14 +36,14 @@ class SubscriptionsServiceProvider extends ServiceProvider
      */
     public function register(): void
     {
-        $this->mergeConfigFrom(realpath(__DIR__ . '/../../config/config.php'), 'nigel.subscriptions');
+        $this->mergeConfigFrom(realpath(__DIR__ . '/../../config/config.php'), 'theartizan.subscriptions');
 
         // Bind eloquent models to IoC container
         $this->registerModels([
-            'nigel.subscriptions.plan' => Plan::class,
-            'nigel.subscriptions.plan_feature' => PlanFeature::class,
-            'nigel.subscriptions.plan_subscription' => PlanSubscription::class,
-            'nigel.subscriptions.plan_subscription_usage' => PlanSubscriptionUsage::class,
+            'theartizan.subscriptions.plan' => Plan::class,
+            'theartizan.subscriptions.plan_feature' => PlanFeature::class,
+            'theartizan.subscriptions.plan_subscription' => PlanSubscription::class,
+            'theartizan.subscriptions.plan_subscription_usage' => PlanSubscriptionUsage::class,
         ]);
 
 

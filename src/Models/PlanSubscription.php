@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Nigel\Subscriptions\Models;
+namespace TheArtizan\Subscriptions\Models;
 
 use DB;
 use Carbon\Carbon;
@@ -21,7 +21,7 @@ use Illuminate\Database\Eloquent\Relations\MorphTo;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 
 /**
- * Nigel\Subscriptions\Models\PlanSubscription.
+ * TheArtizan\Subscriptions\Models\PlanSubscription.
  *
  * @property int                 $id
  * @property int                 $subscriber_id
@@ -38,31 +38,31 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
  * @property \Carbon\Carbon|null $created_at
  * @property \Carbon\Carbon|null $updated_at
  * @property \Carbon\Carbon|null $deleted_at
- * @property-read \Nigel\Subscriptions\Models\Plan                                                             $plan
- * @property-read \Illuminate\Database\Eloquent\Collection|\Nigel\Subscriptions\Models\PlanSubscriptionUsage[] $usage
+ * @property-read \TheArtizan\Subscriptions\Models\Plan                                                             $plan
+ * @property-read \Illuminate\Database\Eloquent\Collection|\TheArtizan\Subscriptions\Models\PlanSubscriptionUsage[] $usage
  * @property-read \Illuminate\Database\Eloquent\Model|\Eloquent                                                 $subscriber
  *
- * @method static \Illuminate\Database\Eloquent\Builder|\Nigel\Subscriptions\Models\PlanSubscription byPlanId($planId)
- * @method static \Illuminate\Database\Eloquent\Builder|\Nigel\Subscriptions\Models\PlanSubscription findEndedPeriod()
- * @method static \Illuminate\Database\Eloquent\Builder|\Nigel\Subscriptions\Models\PlanSubscription findEndedTrial()
- * @method static \Illuminate\Database\Eloquent\Builder|\Nigel\Subscriptions\Models\PlanSubscription findEndingPeriod($dayRange = 3)
- * @method static \Illuminate\Database\Eloquent\Builder|\Nigel\Subscriptions\Models\PlanSubscription findEndingTrial($dayRange = 3)
- * @method static \Illuminate\Database\Eloquent\Builder|\Nigel\Subscriptions\Models\PlanSubscription ofSubscriber(\Illuminate\Database\Eloquent\Model $subscriber)
- * @method static \Illuminate\Database\Eloquent\Builder|\Nigel\Subscriptions\Models\PlanSubscription whereCanceledAt($value)
- * @method static \Illuminate\Database\Eloquent\Builder|\Nigel\Subscriptions\Models\PlanSubscription whereCancelsAt($value)
- * @method static \Illuminate\Database\Eloquent\Builder|\Nigel\Subscriptions\Models\PlanSubscription whereCreatedAt($value)
- * @method static \Illuminate\Database\Eloquent\Builder|\Nigel\Subscriptions\Models\PlanSubscription whereDeletedAt($value)
- * @method static \Illuminate\Database\Eloquent\Builder|\Nigel\Subscriptions\Models\PlanSubscription whereDescription($value)
- * @method static \Illuminate\Database\Eloquent\Builder|\Nigel\Subscriptions\Models\PlanSubscription whereEndsAt($value)
- * @method static \Illuminate\Database\Eloquent\Builder|\Nigel\Subscriptions\Models\PlanSubscription whereId($value)
- * @method static \Illuminate\Database\Eloquent\Builder|\Nigel\Subscriptions\Models\PlanSubscription whereTitle($value)
- * @method static \Illuminate\Database\Eloquent\Builder|\Nigel\Subscriptions\Models\PlanSubscription wherePlanId($value)
- * @method static \Illuminate\Database\Eloquent\Builder|\Nigel\Subscriptions\Models\PlanSubscription whereSlug($value)
- * @method static \Illuminate\Database\Eloquent\Builder|\Nigel\Subscriptions\Models\PlanSubscription whereStartsAt($value)
- * @method static \Illuminate\Database\Eloquent\Builder|\Nigel\Subscriptions\Models\PlanSubscription whereTrialEndsAt($value)
- * @method static \Illuminate\Database\Eloquent\Builder|\Nigel\Subscriptions\Models\PlanSubscription whereUpdatedAt($value)
- * @method static \Illuminate\Database\Eloquent\Builder|\Nigel\Subscriptions\Models\PlanSubscription whereSubscriberId($value)
- * @method static \Illuminate\Database\Eloquent\Builder|\Nigel\Subscriptions\Models\PlanSubscription whereSubscriberType($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|\TheArtizan\Subscriptions\Models\PlanSubscription byPlanId($planId)
+ * @method static \Illuminate\Database\Eloquent\Builder|\TheArtizan\Subscriptions\Models\PlanSubscription findEndedPeriod()
+ * @method static \Illuminate\Database\Eloquent\Builder|\TheArtizan\Subscriptions\Models\PlanSubscription findEndedTrial()
+ * @method static \Illuminate\Database\Eloquent\Builder|\TheArtizan\Subscriptions\Models\PlanSubscription findEndingPeriod($dayRange = 3)
+ * @method static \Illuminate\Database\Eloquent\Builder|\TheArtizan\Subscriptions\Models\PlanSubscription findEndingTrial($dayRange = 3)
+ * @method static \Illuminate\Database\Eloquent\Builder|\TheArtizan\Subscriptions\Models\PlanSubscription ofSubscriber(\Illuminate\Database\Eloquent\Model $subscriber)
+ * @method static \Illuminate\Database\Eloquent\Builder|\TheArtizan\Subscriptions\Models\PlanSubscription whereCanceledAt($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|\TheArtizan\Subscriptions\Models\PlanSubscription whereCancelsAt($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|\TheArtizan\Subscriptions\Models\PlanSubscription whereCreatedAt($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|\TheArtizan\Subscriptions\Models\PlanSubscription whereDeletedAt($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|\TheArtizan\Subscriptions\Models\PlanSubscription whereDescription($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|\TheArtizan\Subscriptions\Models\PlanSubscription whereEndsAt($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|\TheArtizan\Subscriptions\Models\PlanSubscription whereId($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|\TheArtizan\Subscriptions\Models\PlanSubscription whereTitle($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|\TheArtizan\Subscriptions\Models\PlanSubscription wherePlanId($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|\TheArtizan\Subscriptions\Models\PlanSubscription whereSlug($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|\TheArtizan\Subscriptions\Models\PlanSubscription whereStartsAt($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|\TheArtizan\Subscriptions\Models\PlanSubscription whereTrialEndsAt($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|\TheArtizan\Subscriptions\Models\PlanSubscription whereUpdatedAt($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|\TheArtizan\Subscriptions\Models\PlanSubscription whereSubscriberId($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|\TheArtizan\Subscriptions\Models\PlanSubscription whereSubscriberType($value)
  * @mixin \Eloquent
  */
 class PlanSubscription extends Model
@@ -147,12 +147,12 @@ class PlanSubscription extends Model
      */
     public function __construct(array $attributes = [])
     {
-        $this->setTable(config('nigel.subscriptions.tables.plan_subscriptions'));
+        $this->setTable(config('theartizan.subscriptions.tables.plan_subscriptions'));
         $this->mergeRules([
             'name' => 'required|string|strip_tags|max:150',
             'description' => 'nullable|string|max:32768',
-            'slug' => 'required|alpha_dash|max:150|unique:' . config('nigel.subscriptions.tables.plan_subscriptions') . ',slug',
-            'plan_id' => 'required|integer|exists:' . config('nigel.subscriptions.tables.plans') . ',id',
+            'slug' => 'required|alpha_dash|max:150|unique:' . config('theartizan.subscriptions.tables.plan_subscriptions') . ',slug',
+            'plan_id' => 'required|integer|exists:' . config('theartizan.subscriptions.tables.plans') . ',id',
             'subscriber_id' => 'required|integer',
             'subscriber_type' => 'required|string|strip_tags|max:150',
             'trial_ends_at' => 'nullable|date',
@@ -213,7 +213,7 @@ class PlanSubscription extends Model
      */
     public function usage(): hasMany
     {
-        return $this->hasMany(config('nigel.subscriptions.models.plan_subscription_usage'), 'subscription_id', 'id');
+        return $this->hasMany(config('theartizan.subscriptions.models.plan_subscription_usage'), 'subscription_id', 'id');
     }
 
     /**
@@ -289,7 +289,7 @@ class PlanSubscription extends Model
     /**
      * Change subscription plan.
      *
-     * @param \Nigel\Subscriptions\Models\Plan $plan
+     * @param \TheArtizan\Subscriptions\Models\Plan $plan
      *
      * @return $this
      */
@@ -453,7 +453,7 @@ class PlanSubscription extends Model
      * @param string $featureSlug
      * @param int    $uses
      *
-     * @return \Nigel\Subscriptions\Models\PlanSubscriptionUsage
+     * @return \TheArtizan\Subscriptions\Models\PlanSubscriptionUsage
      */
     public function recordFeatureUsage(string $featureSlug, int $uses = 1, bool $incremental = true): PlanSubscriptionUsage
     {
@@ -491,7 +491,7 @@ class PlanSubscription extends Model
      * @param string $featureSlug
      * @param int    $uses
      *
-     * @return \Nigel\Subscriptions\Models\PlanSubscriptionUsage|null
+     * @return \TheArtizan\Subscriptions\Models\PlanSubscriptionUsage|null
      */
     public function reduceFeatureUsage(string $featureSlug, int $uses = 1): ?PlanSubscriptionUsage
     {
