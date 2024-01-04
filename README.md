@@ -313,9 +313,7 @@ Refer to the [Changelog](CHANGELOG.md) for a full history of the project.
 
 The following support channels are available at your fingertips:
 
-- [Chat on Slack](https://bit.ly/nigel-slack)
-- [Help on Email](mailto:help@nigel.com)
-- [Follow on Twitter](https://twitter.com/nigel)
+- [Follow on Twitter](https://twitter.com/iamtanyazw)
 
 ## Contributing & Protocols
 
@@ -331,14 +329,11 @@ Bug reports, feature requests, and pull requests are very welcome.
 
 ## Security Vulnerabilities
 
-If you discover a security vulnerability within this project, please send an e-mail to [help@nigel.com](help@nigel.com). All security vulnerabilities will be promptly addressed.
+If you discover a security vulnerability within this project, please send an e-mail to [help@nigel.com](iamtanyazw@gmail.com). All security vulnerabilities will be promptly addressed.
 
-## About Nigel
-
-Nigel is a software solutions startup, specialized in integrated enterprise solutions for SMEs established in Alexandria, Egypt since June 2016. We believe that our drive The Value, The Reach, and The Impact is what differentiates us and unleash the endless possibilities of our philosophy through the power of software. We like to call it Innovation At The Speed Of Life. That’s how we do our share of advancing humanity.
 
 ## License
 
 This software is released under [The MIT License (MIT)](LICENSE).
 
-(c) 2016-2022 Nigel LLC, Some rights reserved.
+(c) 2024 Nigel Jaure, Some rights reserved.
