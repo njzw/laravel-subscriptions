@@ -36,7 +36,7 @@ class SubscriptionsServiceProvider extends ServiceProvider
      */
     public function register(): void
     {
-        $this->mergeConfigFrom(realpath(__DIR__ . '/../../config/config.php'), 'nigel.subscriptions');
+        $this->mergeConfigFrom(realpath(__DIR__ . '../../config/config.php'), 'nigel.subscriptions');
 
         // Bind eloquent models to IoC container
         $this->registerModels([
@@ -58,8 +58,8 @@ class SubscriptionsServiceProvider extends ServiceProvider
     {
         // Publish Resources
         $this->publishes([
-            realpath(__DIR__ . '/../../config/config.php') => config_path('laravel-subscriptions.php'),
-        ]);
+            realpath(__DIR__ . '../../config/config.php') => config_path('subscriptions.php'),
+        ], 'subscriptions-config');
         $this->loadMigrationsFrom(__DIR__ . '/../database/migrations');
 
         // Register console commands
