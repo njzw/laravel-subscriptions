@@ -24,9 +24,9 @@ class SubscriptionsServiceProvider extends ServiceProvider
      * @var array
      */
     protected $commands = [
-        MigrateCommand::class ,
-        PublishCommand::class ,
-        RollbackCommand::class ,
+        MigrateCommand::class,
+        PublishCommand::class,
+        RollbackCommand::class,
     ];
 
     /**
@@ -66,9 +66,9 @@ class SubscriptionsServiceProvider extends ServiceProvider
 
 
         if ($this->app->runningInConsole()) {
-            $this->commands([
+            $this->commands(
                 $this->commands
-            ]);
+            );
         }
     }
 }
