@@ -46,8 +46,7 @@ class SubscriptionsServiceProvider extends ServiceProvider
             'rinvex.subscriptions.plan_subscription_usage' => PlanSubscriptionUsage::class,
         ]);
 
-        // Register console commands
-        $this->commands($this->commands);
+
     }
 
     /**
@@ -59,9 +58,17 @@ class SubscriptionsServiceProvider extends ServiceProvider
     {
         // Publish Resources
         $this->publishes([
-            realpath(__DIR__ . '/../../config/config.php')=> config_path('laravel-subscriptions.php'),
+            realpath(__DIR__ . '/../../config/config.php') => config_path('laravel-subscriptions.php'),
         ]);
-
         $this->loadMigrationsFrom(__DIR__ . '/../database/migrations');
+
+        // Register console commands
+
+
+        if ($this->app->runningInConsole()) {
+            $this->commands([
+                $this->commands
+            ]);
+        }
     }
 }
